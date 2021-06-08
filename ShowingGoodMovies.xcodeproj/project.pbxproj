@@ -16,6 +16,7 @@
 		E280767926701C780014665D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280767826701C780014665D /* DetailViewController.swift */; };
 		E280767B26701C870014665D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280767A26701C870014665D /* Movie.swift */; };
 		E280767F26701CB50014665D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280767E26701CB50014665D /* NetworkHelper.swift */; };
+		E280768126701EDF0014665D /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280768026701EDF0014665D /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E280767826701C780014665D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E280767A26701C870014665D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E280767E26701CB50014665D /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		E280768026701EDF0014665D /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +64,13 @@
 		E280766226701B860014665D /* ShowingGoodMovies */ = {
 			isa = PBXGroup;
 			children = (
-				E280767D26701CAA0014665D /* Helpers */,
 				E280766326701B860014665D /* AppDelegate.swift */,
 				E280766526701B860014665D /* SceneDelegate.swift */,
+				E280767D26701CAA0014665D /* Helpers */,
 				E280767726701C410014665D /* ViewControllers */,
 				E280767C26701C930014665D /* Models */,
 				E280766926701B860014665D /* Main.storyboard */,
+				E280768026701EDF0014665D /* MovieTableViewCell.swift */,
 				E280766C26701B880014665D /* Assets.xcassets */,
 				E280766E26701B880014665D /* LaunchScreen.storyboard */,
 				E280767126701B880014665D /* Info.plist */,
@@ -172,6 +175,7 @@
 			files = (
 				E280766826701B860014665D /* MovieListViewController.swift in Sources */,
 				E280766426701B860014665D /* AppDelegate.swift in Sources */,
+				E280768126701EDF0014665D /* MovieTableViewCell.swift in Sources */,
 				E280766626701B860014665D /* SceneDelegate.swift in Sources */,
 				E280767926701C780014665D /* DetailViewController.swift in Sources */,
 				E280767F26701CB50014665D /* NetworkHelper.swift in Sources */,
