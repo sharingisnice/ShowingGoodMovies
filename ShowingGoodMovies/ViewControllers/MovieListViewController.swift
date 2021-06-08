@@ -29,7 +29,7 @@ class MovieListViewController: UIViewController {
         tableView.delegate = self
         viewModel.delegate = self
         
-        dateFormatterGet.dateFormat = "YYYY-MM-DD"
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
         dateFormatterShow.dateFormat = "MMMM yyyy"
     }
     
@@ -90,7 +90,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 178
+        return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

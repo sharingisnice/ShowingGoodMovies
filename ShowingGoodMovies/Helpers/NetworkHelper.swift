@@ -10,7 +10,7 @@ import Foundation
 class NetworkHelper {
     
     var baseURL = "https://api.themoviedb.org/3/discover/movie?"
-    var topMovies = "sort_by=popularity.desc"
+    var topMovies = "sort_by=vote_average.desc&region=US&vote_count.gte=10000"
     
     enum NetworkError: Error {
         case badURL, requestFailed, unknown
