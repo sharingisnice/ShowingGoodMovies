@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uSj-9W-C1H">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -31,25 +32,25 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vGP-kF-ULl">
-                                                            <rect key="frame" x="20" y="20" width="80" height="135"/>
+                                                            <rect key="frame" x="20" y="20" width="100" height="135"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="b6w-am-G6M"/>
+                                                                <constraint firstAttribute="width" constant="100" id="b6w-am-G6M"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GST-Dq-eLY">
-                                                            <rect key="frame" x="108" y="20" width="286" height="21"/>
+                                                            <rect key="frame" x="128" y="20" width="266" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFe-ts-xiV">
-                                                            <rect key="frame" x="108" y="49" width="286" height="21"/>
+                                                            <rect key="frame" x="128" y="49" width="266" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUq-VF-kYA">
-                                                            <rect key="frame" x="108" y="78" width="286" height="77"/>
+                                                            <rect key="frame" x="128" y="78" width="266" height="77"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -102,7 +103,7 @@
                     <navigationItem key="navigationItem" title="Amazing Movies" id="504-8t-lDV"/>
                     <connections>
                         <outlet property="tableView" destination="bxC-a6-rSY" id="8uf-2h-dd4"/>
-                        <segue destination="Zbo-6c-pOE" kind="show" identifier="detail" id="RXw-Xn-kC1"/>
+                        <segue destination="Zbo-6c-pOE" kind="show" identifier="detailSegue" id="RXw-Xn-kC1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,8 +124,20 @@
                                     <constraint firstAttribute="height" constant="300" id="bcw-9g-7aC"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-6P-Zib">
-                                <rect key="frame" x="20" y="396" width="91" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="MovieName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-6P-Zib">
+                                <rect key="frame" x="20" y="396" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGM-iQ-OkP" userLabel="Score">
+                                <rect key="frame" x="20" y="424.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-Ey-96G" userLabel="Note">
+                                <rect key="frame" x="20" y="453" width="374" height="389"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -133,10 +146,18 @@
                         <viewLayoutGuide key="safeArea" id="xne-Qw-kqM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xne-Qw-kqM" firstAttribute="trailing" secondItem="NBu-Ey-96G" secondAttribute="trailing" constant="20" id="2xC-gR-ytj"/>
+                            <constraint firstItem="MGM-iQ-OkP" firstAttribute="top" secondItem="Udw-6P-Zib" secondAttribute="bottom" constant="8" symbolic="YES" id="5fO-WM-9DU"/>
                             <constraint firstItem="crx-ZC-fTx" firstAttribute="top" secondItem="xne-Qw-kqM" secondAttribute="top" id="A6v-I8-p9z"/>
+                            <constraint firstItem="xne-Qw-kqM" firstAttribute="trailing" secondItem="MGM-iQ-OkP" secondAttribute="trailing" constant="20" id="I5q-Qj-mbe"/>
                             <constraint firstItem="Udw-6P-Zib" firstAttribute="top" secondItem="crx-ZC-fTx" secondAttribute="bottom" constant="8" symbolic="YES" id="Lco-F1-8tO"/>
+                            <constraint firstItem="xne-Qw-kqM" firstAttribute="trailing" secondItem="Udw-6P-Zib" secondAttribute="trailing" constant="20" id="MDg-G8-JCZ"/>
+                            <constraint firstItem="xne-Qw-kqM" firstAttribute="bottom" secondItem="NBu-Ey-96G" secondAttribute="bottom" constant="20" id="PKS-qW-ebg"/>
+                            <constraint firstItem="MGM-iQ-OkP" firstAttribute="leading" secondItem="xne-Qw-kqM" secondAttribute="leading" constant="20" id="Vkb-ys-bPQ"/>
                             <constraint firstItem="crx-ZC-fTx" firstAttribute="leading" secondItem="xne-Qw-kqM" secondAttribute="leading" id="W0S-9T-jbr"/>
+                            <constraint firstItem="NBu-Ey-96G" firstAttribute="leading" secondItem="xne-Qw-kqM" secondAttribute="leading" constant="20" id="acx-fd-aCo"/>
                             <constraint firstItem="crx-ZC-fTx" firstAttribute="trailing" secondItem="xne-Qw-kqM" secondAttribute="trailing" id="fRu-Qv-gLf"/>
+                            <constraint firstItem="NBu-Ey-96G" firstAttribute="top" secondItem="MGM-iQ-OkP" secondAttribute="bottom" constant="8" symbolic="YES" id="xBE-Rb-B9F"/>
                             <constraint firstItem="Udw-6P-Zib" firstAttribute="leading" secondItem="xne-Qw-kqM" secondAttribute="leading" constant="20" id="zve-vR-l2i"/>
                         </constraints>
                     </view>
@@ -144,6 +165,8 @@
                     <connections>
                         <outlet property="movieImage" destination="crx-ZC-fTx" id="SgQ-TH-t9l"/>
                         <outlet property="name" destination="Udw-6P-Zib" id="HC3-f1-FaW"/>
+                        <outlet property="overview" destination="NBu-Ey-96G" id="jxz-eW-XRE"/>
+                        <outlet property="score" destination="MGM-iQ-OkP" id="JIv-Df-xTG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bT-6m-Wqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

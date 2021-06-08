@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var overview: UILabel!
     
     var movie: Movie?
     
@@ -22,8 +25,11 @@ class DetailViewController: UIViewController {
     
     func setUI()  {
         if let movie = movie {
-//            movieImage.image = movie.image
+            let imageUrl = "https://image.tmdb.org/t/p/w500\(movie.imageURL ?? "")"
+            movieImage.sd_setImage(with: URL(string: imageUrl), completed: nil)
             name.text = movie.name
+            score.text = "⭐ \(movie.score)"
+            overview.text = movie.description
         }
     }
 

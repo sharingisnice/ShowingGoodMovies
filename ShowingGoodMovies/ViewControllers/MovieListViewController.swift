@@ -88,5 +88,10 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         return 178
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedMovie = viewModel.popularMovies[indexPath.row]
+        performSegue(withIdentifier: "detailSegue", sender: nil)
+    }
+    
 }
 
