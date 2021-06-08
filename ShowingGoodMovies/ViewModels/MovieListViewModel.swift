@@ -12,7 +12,6 @@ import Foundation
 
 protocol MovieListViewModelDelegate {
     func updateMovies()
-
 }
 
 class MovieListViewModel {
@@ -20,14 +19,12 @@ class MovieListViewModel {
     var selectedMovie: Movie?
     
     var popularMovies = [Movie]()
-    var topRatedMovies = [Movie]()
-    var onTheaterMovies = [Movie]()
 
     let requester = NetworkHelper()
     
     private var pageCount = 0
 
-    func getPopulerMovies() {
+    func getPopularMovies() {
         pageCount += 1
         requester.getMovies(page: pageCount) { movieList in
             let newItems = try! movieList.get()
@@ -36,7 +33,5 @@ class MovieListViewModel {
         }
         
     }
-    
-    
-        
+
 }

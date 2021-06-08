@@ -8,11 +8,11 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     let viewModel = MovieListViewModel()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +21,20 @@ class MovieListViewController: UIViewController {
         getDatas()
     }
     
+    
     func setUI() {
         tableView.dataSource = self
         tableView.delegate = self
+        viewModel.delegate = self
         
     }
     
+    
     func getDatas() {
-        
+        viewModel.getPopularMovies()
     }
+    
+    
     
     
     //MARK: Segue preparation
@@ -40,9 +45,18 @@ class MovieListViewController: UIViewController {
             destination.movie = movie
         }
     }
-
-
 }
+
+extension MovieListViewController: MovieListViewModelDelegate {
+    func updateMovies() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+}
+
 
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +70,11 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == viewModel.popularMovies.count {
+            viewModel.getPopularMovies()
+        }
+    }
     
 }
 
