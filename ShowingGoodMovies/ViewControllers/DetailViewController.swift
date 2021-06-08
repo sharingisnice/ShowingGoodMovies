@@ -12,13 +12,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     
+    var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUI()
     }
     
-
+    func setUI()  {
+        if let movie = movie {
+//            movieImage.image = movie.image
+            name.text = movie.name
+        }
+    }
 
 }

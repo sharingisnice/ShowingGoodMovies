@@ -101,6 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Amazing Movies" id="504-8t-lDV"/>
                     <connections>
+                        <outlet property="tableView" destination="bxC-a6-rSY" id="8uf-2h-dd4"/>
                         <segue destination="Zbo-6c-pOE" kind="show" identifier="detail" id="RXw-Xn-kC1"/>
                     </connections>
                 </viewController>
