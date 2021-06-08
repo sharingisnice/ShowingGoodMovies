@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47765B89700C7BE066268ABC /* Pods_ShowingGoodMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A804C8D80DF72BB6292BEC12 /* Pods_ShowingGoodMovies.framework */; };
 		E280766426701B860014665D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280766326701B860014665D /* AppDelegate.swift */; };
 		E280766626701B860014665D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280766526701B860014665D /* SceneDelegate.swift */; };
 		E280766826701B860014665D /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280766726701B860014665D /* MovieListViewController.swift */; };
@@ -23,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CF34BCD1B17B1C1850301C8 /* Pods-ShowingGoodMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowingGoodMovies.debug.xcconfig"; path = "Target Support Files/Pods-ShowingGoodMovies/Pods-ShowingGoodMovies.debug.xcconfig"; sourceTree = "<group>"; };
+		A804C8D80DF72BB6292BEC12 /* Pods_ShowingGoodMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowingGoodMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD901B96BE26941B385CAFDD /* Pods-ShowingGoodMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowingGoodMovies.release.xcconfig"; path = "Target Support Files/Pods-ShowingGoodMovies/Pods-ShowingGoodMovies.release.xcconfig"; sourceTree = "<group>"; };
 		E280766026701B860014665D /* ShowingGoodMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowingGoodMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E280766326701B860014665D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E280766526701B860014665D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,17 +49,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47765B89700C7BE066268ABC /* Pods_ShowingGoodMovies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8448C3626E686FB9EC3F31B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A804C8D80DF72BB6292BEC12 /* Pods_ShowingGoodMovies.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93E1852F4871FEE5909D7983 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2CF34BCD1B17B1C1850301C8 /* Pods-ShowingGoodMovies.debug.xcconfig */,
+				AD901B96BE26941B385CAFDD /* Pods-ShowingGoodMovies.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E280765726701B860014665D = {
 			isa = PBXGroup;
 			children = (
 				E280766226701B860014665D /* ShowingGoodMovies */,
 				E280766126701B860014665D /* Products */,
+				93E1852F4871FEE5909D7983 /* Pods */,
+				8448C3626E686FB9EC3F31B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E280767426701B880014665D /* Build configuration list for PBXNativeTarget "ShowingGoodMovies" */;
 			buildPhases = (
+				1D992F2AD6886319FCFA859E /* [CP] Check Pods Manifest.lock */,
 				E280765C26701B860014665D /* Sources */,
 				E280765D26701B860014665D /* Frameworks */,
 				E280765E26701B860014665D /* Resources */,
+				18995A070F2E30D87D36D8AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,6 +211,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18995A070F2E30D87D36D8AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShowingGoodMovies/Pods-ShowingGoodMovies-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShowingGoodMovies/Pods-ShowingGoodMovies-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShowingGoodMovies/Pods-ShowingGoodMovies-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D992F2AD6886319FCFA859E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShowingGoodMovies-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E280765C26701B860014665D /* Sources */ = {
@@ -343,6 +412,7 @@
 		};
 		E280767526701B880014665D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CF34BCD1B17B1C1850301C8 /* Pods-ShowingGoodMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -362,6 +432,7 @@
 		};
 		E280767626701B880014665D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD901B96BE26941B385CAFDD /* Pods-ShowingGoodMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
