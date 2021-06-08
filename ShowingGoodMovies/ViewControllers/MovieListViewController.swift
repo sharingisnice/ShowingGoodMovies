@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieListViewController: UIViewController {
     
@@ -35,8 +36,6 @@ class MovieListViewController: UIViewController {
     }
     
     
-    
-    
     //MARK: Segue preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
@@ -60,12 +59,21 @@ extension MovieListViewController: MovieListViewModelDelegate {
 
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.popularMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath)
+        let movieData = viewModel.popularMovies[indexPath.row]
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
+        
+        let imageUrl = "https://image.tmdb.org/t/p/w500\(movieData.imageURL ?? "")"
+        cell.movieImage.sd_setImage(with: URL(string: imageUrl))
+        cell.name.text = movieData.name
+        cell.score.text = "⭐ \(movieData.score)"
+        cell.overview.text = movieData.description
+
         
         return cell
     }
@@ -74,6 +82,10 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row + 1 == viewModel.popularMovies.count {
             viewModel.getPopularMovies()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 178
     }
     
 }
