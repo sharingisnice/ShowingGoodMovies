@@ -13,8 +13,9 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let viewModel = MovieListViewModel()
-    
-    
+    let dateFormatterGet = DateFormatter()
+    let dateFormatterShow = DateFormatter()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +29,8 @@ class MovieListViewController: UIViewController {
         tableView.delegate = self
         viewModel.delegate = self
         
+        dateFormatterGet.dateFormat = "YYYY-MM-DD"
+        dateFormatterShow.dateFormat = "MMMM yyyy"
     }
     
     
@@ -73,7 +76,9 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.name.text = movieData.name
         cell.score.text = "⭐ \(movieData.score)"
         cell.overview.text = movieData.description
-
+        
+        let dateData = dateFormatterGet.date(from: movieData.date)
+        cell.date.text = dateFormatterShow.string(from: dateData!)
         
         return cell
     }

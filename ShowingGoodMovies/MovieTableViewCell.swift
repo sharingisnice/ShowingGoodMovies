@@ -13,6 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var overview: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     
 }

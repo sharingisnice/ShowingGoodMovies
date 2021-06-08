@@ -50,7 +50,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUq-VF-kYA">
-                                                            <rect key="frame" x="128" y="78" width="266" height="77"/>
+                                                            <rect key="frame" x="128" y="107" width="266" height="48"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbB-VY-Zr9">
+                                                            <rect key="frame" x="128" y="78" width="266" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -61,12 +67,15 @@
                                                         <constraint firstAttribute="trailing" secondItem="dFe-ts-xiV" secondAttribute="trailing" constant="20" symbolic="YES" id="0Rm-rf-Ik5"/>
                                                         <constraint firstItem="vUq-VF-kYA" firstAttribute="leading" secondItem="vGP-kF-ULl" secondAttribute="trailing" constant="8" symbolic="YES" id="1ct-ow-aY4"/>
                                                         <constraint firstItem="dFe-ts-xiV" firstAttribute="top" secondItem="GST-Dq-eLY" secondAttribute="bottom" constant="8" symbolic="YES" id="2hH-ta-eln"/>
+                                                        <constraint firstItem="LbB-VY-Zr9" firstAttribute="leading" secondItem="vGP-kF-ULl" secondAttribute="trailing" constant="8" symbolic="YES" id="5Eb-Io-oh8"/>
                                                         <constraint firstItem="GST-Dq-eLY" firstAttribute="leading" secondItem="vGP-kF-ULl" secondAttribute="trailing" constant="8" symbolic="YES" id="8ZC-AC-qCX"/>
                                                         <constraint firstItem="vGP-kF-ULl" firstAttribute="top" secondItem="KS1-Wu-c5O" secondAttribute="top" constant="20" symbolic="YES" id="9u1-Jh-VNf"/>
                                                         <constraint firstAttribute="trailing" secondItem="GST-Dq-eLY" secondAttribute="trailing" constant="20" symbolic="YES" id="IcO-Nk-kAY"/>
+                                                        <constraint firstItem="vUq-VF-kYA" firstAttribute="top" secondItem="LbB-VY-Zr9" secondAttribute="bottom" constant="8" symbolic="YES" id="O9L-w4-j8n"/>
                                                         <constraint firstAttribute="bottom" secondItem="vUq-VF-kYA" secondAttribute="bottom" constant="20" symbolic="YES" id="eEw-eM-io8"/>
+                                                        <constraint firstItem="LbB-VY-Zr9" firstAttribute="top" secondItem="dFe-ts-xiV" secondAttribute="bottom" constant="8" symbolic="YES" id="eM0-IX-Q2l"/>
                                                         <constraint firstAttribute="trailing" secondItem="vUq-VF-kYA" secondAttribute="trailing" constant="20" symbolic="YES" id="gPt-1c-b7F"/>
-                                                        <constraint firstItem="vUq-VF-kYA" firstAttribute="top" secondItem="dFe-ts-xiV" secondAttribute="bottom" constant="8" symbolic="YES" id="lCO-9b-plY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="LbB-VY-Zr9" secondAttribute="trailing" constant="20" symbolic="YES" id="nz7-b9-nvo"/>
                                                         <constraint firstItem="GST-Dq-eLY" firstAttribute="top" secondItem="vGP-kF-ULl" secondAttribute="top" id="wOe-Le-sCc"/>
                                                         <constraint firstAttribute="bottom" secondItem="vGP-kF-ULl" secondAttribute="bottom" constant="20" symbolic="YES" id="yyI-JY-cxw"/>
                                                         <constraint firstItem="dFe-ts-xiV" firstAttribute="leading" secondItem="vGP-kF-ULl" secondAttribute="trailing" constant="8" symbolic="YES" id="z7I-5e-v1r"/>
@@ -82,6 +91,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="date" destination="LbB-VY-Zr9" id="BGn-w0-PYP"/>
                                             <outlet property="movieImage" destination="vGP-kF-ULl" id="5TO-mw-y2f"/>
                                             <outlet property="name" destination="GST-Dq-eLY" id="xm3-ZN-WRX"/>
                                             <outlet property="overview" destination="vUq-VF-kYA" id="iqN-7T-Cbj"/>
