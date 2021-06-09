@@ -68,9 +68,6 @@ extension MovieListViewController: UISearchResultsUpdating {
         if let text = text {
             if text.count > 1 {
                 viewModel.clearMovieList()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
                 viewModel.getQueryMovies(query: text)
             }
         }
@@ -128,7 +125,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectedMovie = viewModel.popularMovies[indexPath.row]
+        viewModel.selectedMovie = viewModel.movieList[indexPath.row]
         performSegue(withIdentifier: "detailSegue", sender: nil)
     }
     
