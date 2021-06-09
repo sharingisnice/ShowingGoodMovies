@@ -31,13 +31,13 @@ class MovieListViewController: UIViewController {
 
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.searchController = searchController
+        definesPresentationContext = true
         searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
         viewModel.delegate = self
         
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
         dateFormatterShow.dateFormat = "MMMM yyyy"
-        
-    
     }
     
     
@@ -72,6 +72,7 @@ extension MovieListViewController: UISearchResultsUpdating {
             }
         }
     }
+
 }
 
 
@@ -88,24 +89,23 @@ extension MovieListViewController: MovieListViewModelDelegate {
 
 extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.popularMovies.count
+        return viewModel.movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if viewModel.movieList.isEmpty {
+        if !viewModel.movieList.indices.contains(indexPath.row) {
             return UITableViewCell()
         }
 
         let movieData = viewModel.movieList[indexPath.row]
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
         
-        let imageUrl = "https://image.tmdb.org/t/p/w500\(movieData.imageURL ?? "")"
-        cell.movieImage.sd_setImage(with: URL(string: imageUrl))
         cell.name.text = movieData.name
         cell.score.text = "⭐ \(movieData.score)"
         cell.overview.text = movieData.description
+        let imageUrl = "https://image.tmdb.org/t/p/w500\(movieData.imageURL ?? "")"
+        cell.movieImage.sd_setImage(with: URL(string: imageUrl))
         
         if let dateData = dateFormatterGet.date(from: movieData.date) {
             cell.date.text = dateFormatterShow.string(from: dateData)

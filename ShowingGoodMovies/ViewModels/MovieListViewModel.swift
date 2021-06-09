@@ -70,8 +70,8 @@ class MovieListViewModel {
     
     func clearMovieList() {
         movieList.removeAll()
-//        searchedMovies.removeAll()
-//        popularMovies.removeAll()
+        searchedMovies.removeAll()
+        popularMovies.removeAll()
         pageCount = 0
         searchedCount = 0
         delegate?.updateMovies()
