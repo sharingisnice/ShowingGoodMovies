@@ -15,6 +15,7 @@ class MovieListViewController: UIViewController {
     let viewModel = MovieListViewModel()
     let dateFormatterGet = DateFormatter()
     let dateFormatterShow = DateFormatter()
+    let searchController = UISearchController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +28,16 @@ class MovieListViewController: UIViewController {
     func setUI() {
         tableView.dataSource = self
         tableView.delegate = self
+
+        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
         viewModel.delegate = self
         
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
         dateFormatterShow.dateFormat = "MMMM yyyy"
+        
+    
     }
     
     
@@ -38,6 +45,10 @@ class MovieListViewController: UIViewController {
         viewModel.getPopularMovies()
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     //MARK: Segue preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,6 +59,24 @@ class MovieListViewController: UIViewController {
         }
     }
 }
+
+
+extension MovieListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text
+        
+        if let text = text {
+            if text.count > 1 {
+                viewModel.clearMovieList()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                viewModel.getQueryMovies(query: text)
+            }
+        }
+    }
+}
+
 
 extension MovieListViewController: MovieListViewModelDelegate {
     func updateMovies() {
@@ -67,7 +96,11 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let movieData = viewModel.popularMovies[indexPath.row]
+        if viewModel.movieList.isEmpty {
+            return UITableViewCell()
+        }
+
+        let movieData = viewModel.movieList[indexPath.row]
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
         
@@ -77,15 +110,16 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.score.text = "⭐ \(movieData.score)"
         cell.overview.text = movieData.description
         
-        let dateData = dateFormatterGet.date(from: movieData.date)
-        cell.date.text = dateFormatterShow.string(from: dateData!)
+        if let dateData = dateFormatterGet.date(from: movieData.date) {
+            cell.date.text = dateFormatterShow.string(from: dateData)
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == viewModel.popularMovies.count {
-            viewModel.getPopularMovies()
+        if indexPath.row + 1 == viewModel.movieList.count {
+            viewModel.getLastKnownList()
         }
     }
     

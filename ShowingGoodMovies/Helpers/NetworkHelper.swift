@@ -9,8 +9,9 @@ import Foundation
 
 class NetworkHelper {
     
-    var baseURL = "https://api.themoviedb.org/3/discover/movie?"
-    var topMovies = "sort_by=vote_average.desc&region=US&vote_count.gte=10000"
+    var baseURL = "https://api.themoviedb.org/3/"
+    var topMovies = "discover/movie?sort_by=vote_average.desc&region=US&vote_count.gte=10000"
+    var movieQuery = "search/movie?query="
     
     enum NetworkError: Error {
         case badURL, requestFailed, unknown
@@ -20,8 +21,13 @@ class NetworkHelper {
         return "&api_key=\(Bundle.main.object(forInfoDictionaryKey: "MovieDB_ApiKey") as? String ?? "")"
     }
     
-    func getMovies(page: Int, completion: @escaping (Result<[Movie],NetworkError>) -> () ) {
-        let requestURL = "\(baseURL)\(topMovies)&page=\(page)\(NetworkHelper.requestToken!)"
+    func getMovies(page: Int, customQuery: String?, completion: @escaping (Result<[Movie],NetworkError>) -> () ) {
+        
+        var requestURL = "\(baseURL)\(topMovies)&page=\(page)\(NetworkHelper.requestToken!)"
+
+        if let query = customQuery {
+            requestURL = "\(baseURL)\(movieQuery)\(query)&page=\(page)\(NetworkHelper.requestToken!)"
+        }
         
         _ = Just.get(requestURL, asyncCompletionHandler: { result in
             if let movieResult = result.content {
@@ -33,6 +39,8 @@ class NetworkHelper {
                 }
             }
         })
-        
     }
+    
+    
+    
 }
